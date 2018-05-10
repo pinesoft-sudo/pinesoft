@@ -1,0 +1,11 @@
+#公共环境参数
+
+#指向开发环境
+spring.profiles.active=dev
+
+debug=true
+logging.path = /log
+logging.file = eureka-server.log
+logging.level.root = INFO
+#设置具体包日志级别
+#logging.level.org.springframework.web=DEBUG

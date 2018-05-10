@@ -1,0 +1,19 @@
+1506415961240	Rename package 'com.pine'
+1506415973938	Delete element
+1506416038525	Rename package 'com'
+1506417613705	Copy package
+1506417651407	Copy package
+1506417659584	Copy package
+1506477566656	Copy package
+1506477576711	Copy packages
+1506495934116	Delete element
+1506664259711	Copy compilation unit
+1506664450986	Delete element
+1506665988132	Rename type 'TemplateMapper'
+1506666021078	Rename type 'ConfigRecordMapper'
+1506666044496	Rename type 'CustomTemplateMapper'
+1506666582281	Rename type 'DefTemplateMapper'
+1506666609304	Delete element
+1506666642618	Rename type 'QueryConfigService'
+1506666662632	Rename type 'TemplateService'
+1506667204157	Rename type 'SolrTemplateMapper'

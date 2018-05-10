@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PinesoftEureka&apos; to &apos;pinesoft-eureka-server&apos;" description="Rename resource &apos;PinesoftEureka&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/PinesoftEureka" name="pinesoft-eureka-server" stamp="1524734699109" updateReferences="true"/>
+</session>

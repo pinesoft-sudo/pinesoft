@@ -1,0 +1,22 @@
+package com.pine.soft;
+
+import java.io.IOException;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+
+@SpringBootApplication
+@EnableDiscoveryClient // 启用服务注册与发现
+@EnableFeignClients // 启用feign进行远程调用(反向代理)
+@EnableHystrixDashboard//开启熔断监控，页面地址 http://{host}:{port}/hystrix
+@EnableCircuitBreaker//如果启用fegin，则内部默认支持熔断，此处可省略
+public class EurekaConsumerApplication {
+	public static void main(String[] args) throws IOException {
+		SpringApplication.run(EurekaConsumerApplication.class, args);
+		System.out.println("服务消费者已经开启");
+	}
+}

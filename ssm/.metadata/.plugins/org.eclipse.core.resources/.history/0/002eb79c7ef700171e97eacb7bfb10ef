@@ -1,0 +1,56 @@
+package mytest.socket;
+
+import mytest.socket.SocketMsg.SocketState;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+
+	private static final String IDENTITY = "624ee1a9-6056-11e7-84dc-005056208505";
+
+	public static void main(String args[]) {
+		try {
+			SocketProcessClient spc = new SocketProcessClient("192.168.2.230", 9999, IDENTITY);
+
+			/*
+			 * while (true) { String serverinfo=spc.clientAccept();
+			 * System.out.println(serverinfo); if (spc.socket.isClosed()) break; }
+			 */
+
+			String[] arrayId = { "2d8e98c9-8643-11e7-8931-005056208505", "21fd1928-c5e4-11e7-8426-005056208505",
+					"127ff326-e493-11e7-b4e7-005056208505", "13d91a66-c5e4-11e7-8426-005056208505" };
+
+			// int i = 0;
+			// while (true) {
+			// String ret = spc.clientSend(IDENTITY, String.valueOf(i), true,
+			// SocketState.process);
+			// System.out.println(ret);
+			// Thread.sleep(5000);
+			// i++;
+			// }
+
+			for (int i = 0; i < arrayId.length; i++) {
+				SendData sd = new SendData();
+				sd.setResult("0");
+				sd.setType("login");
+				String ret = spc.clientSend(arrayId[i], sd, true, SocketState.process);
+				System.out.println(ret);
+				Thread.sleep(10000);
+			}
+			System.in.read();
+			for (int i = 0; i < arrayId.length; i++) {
+				SendData sd = new SendData();
+				sd.setResult("0");
+				sd.setType("logout");
+				spc.clientSend(arrayId[i], sd, false, SocketState.process);
+				//System.out.println(ret);
+				Thread.sleep(10000);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

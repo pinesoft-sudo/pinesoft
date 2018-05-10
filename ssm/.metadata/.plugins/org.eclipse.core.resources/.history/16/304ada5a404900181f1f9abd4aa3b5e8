@@ -1,0 +1,10 @@
+server.port=9000
+spring.application.name=spring-cloud-producer
+
+#注册到eureka
+eureka.client.serviceUrl.defaultZone=http://localhost:8700/eureka/
+
+#debug=true
+logging.path=/log
+logging.file=eureka-server.log
+logging.level.root=warn

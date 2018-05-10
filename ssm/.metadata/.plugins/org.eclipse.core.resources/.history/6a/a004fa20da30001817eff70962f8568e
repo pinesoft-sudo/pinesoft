@@ -1,0 +1,257 @@
+package org.pine.aspect;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.lang.reflect.Method;
+import java.util.Date;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.pine.annotation.ServiceLog;
+import org.pine.annotation.ThrowExceptionLog;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+/**
+ * @ClassName: SystemLogAspect
+ * @Description: TODO
+ * @author  xier
+ * @date 2016年10月13日 下午1:30:56
+ * 
+ */
+
+/**
+ * @ClassName: SystemLogAspect
+ * @Description: TODO
+ * @author xier
+ * @date 2016年11月2日 下午8:31:18
+ * 
+ */
+@Aspect
+@Component
+public class PineLogAspect {
+
+	// 注入Service用于把日志保存数据库
+	// @Resource
+	// private LogService logService;
+
+	// Service层切点
+	@Pointcut("@annotation(org.pine.annotation.ServiceLog)")
+	public void ServiceAspect() {
+	}
+
+	// Controller层切点
+	@Pointcut("@annotation(org.pine.annotation.ControllerLog)")
+	public void ControllerAspect() {
+	}
+
+	// 异常层切点
+	@Pointcut("@annotation(org.pine.annotation.ExceptionLog)")
+	public void ExceptionAspect() {
+	}
+
+	/**
+	 * 前置通知 用于拦截Controller层记录用户的操作
+	 * @param joinPoint
+	 */
+	@Before("ControllerAspect()")
+	public void ControllerBefore(JoinPoint joinPoint) {
+
+		OprateLog(joinPoint, "controller");
+	}
+
+	/**
+	 * 前置通知 用于拦截Service层记录用户的操作
+	 * @param joinPoint
+	 */
+	@Before("ServiceAspect()")
+	public void ServiceBefore(JoinPoint joinPoint) {
+		OprateLog(joinPoint, "service");
+	}
+
+	/**
+	 * 异常通知 用于拦截service层记录异常日志
+	 * 
+	 * @param joinPoint
+	 * @param e
+	 */
+	@AfterThrowing(pointcut = "ExceptionAspect()", throwing = "e")
+	public void ExceptionAfterThrowing(JoinPoint joinPoint, Throwable e) throws ClassNotFoundException {
+		ExceptionLog(joinPoint, e);
+	}
+
+	/**
+	 * @Title: OprateBefore
+	 * @Description: 操作日志 记录到mongodb
+	 * @author xier
+	 * @param @param
+	 *            joinPoint
+	 */
+	@SuppressWarnings("unused")
+	private void OprateLog(JoinPoint joinPoint, String type) {
+		String ip = "";
+		try {
+			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+					.getRequest();
+			HttpSession session = request.getSession();
+			// 请求的IP
+			ip = request.getRemoteAddr();
+		} catch (Exception ex) {
+		}
+		Log log = new Log();
+		try {
+			String des = "";
+			if (type == "controller")
+				des = getControllerMethodDescription(joinPoint);
+			else if (type == "service")
+				des = getServiceMthodDescription(joinPoint, false);
+
+			// *========数据库日志=========*//
+
+			log.setDescription(des);
+			log.setMethod(
+					(joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
+			log.setType("0");
+			log.setRequestIp(ip);
+			log.setExceptionCode(null);
+			log.setExceptionDetail(null);
+			log.setParams(null);
+			log.setCreateBy("xxx");
+			log.setCreateDate(new Date());
+			OperationLogQueue(log);
+
+		} catch (Exception ex) {
+			log.setExceptionDetail("异常信息:" + ex.getMessage());
+			ExcetionLogQueue(log);
+
+		}
+	}
+
+	/**
+	 * @Title: ExceptionLog
+	 * @Description:异常日志 用log4j记录 不入库y
+	 * @author xier
+	 * @param @param
+	 *            joinPoint
+	 * @param @param
+	 *            type
+	 */
+	private void ExceptionLog(JoinPoint joinPoint, Throwable e) {
+		String ip = "";
+		try {
+			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+					.getRequest();
+			// HttpSession session = request.getSession();
+			// //读取session中的用户
+			// User user = (User)
+			// session.getAttribute(WebConstants.CURRENT_USER);
+			// 获取请求ip
+			ip = request.getRemoteAddr();
+		} catch (Exception e2) {
+			// TODO: handle exception
+		}
+
+		// 获取用户请求方法的参数并序列化为JSON格式字符串
+		String params = "";
+		if (joinPoint.getArgs() != null && joinPoint.getArgs().length > 0) {
+			for (int i = 0; i < joinPoint.getArgs().length; i++) {
+				params += JsonUtil.objectToJson(joinPoint.getArgs()[i]) + ";";
+			}
+		}
+		Log log = new Log();
+		try {
+
+			log.setDescription(getServiceMthodDescription(joinPoint, true));
+			log.setExceptionCode(e.getClass().getName());
+			log.setType("1");
+			log.setExceptionDetail(e.getMessage());
+			log.setMethod(
+					(joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
+			log.setParams(params);
+			log.setCreateBy("xxx");
+			log.setCreateDate(DateUtils.getNowTime());
+			log.setRequestIp(ip);
+
+			ExcetionLogQueue(log);
+		} catch (Exception ex) {
+			// 记录本地异常日志
+			log.setExceptionDetail("异常信息:" + e.getMessage());
+			ExcetionLogQueue(log);
+
+		}
+	}
+
+	/**
+	 * 将异常信息输出到log文件
+	 * @param t
+	 * @return
+	 */
+	public static String getTrace(Throwable t) {
+		StringWriter stringWriter = new StringWriter();
+		PrintWriter writer = new PrintWriter(stringWriter);
+		t.printStackTrace(writer);
+		StringBuffer buffer = stringWriter.getBuffer();
+		return buffer.toString();
+	}
+
+	/**
+	 * 获取注解中对方法的描述信息 用于service层注解
+	 * @param joinPoint
+	 * @return 方法描述
+	 * @throws Exception
+	 */
+	public static String getServiceMthodDescription(JoinPoint joinPoint, Boolean isExceptionLog) throws Exception {
+		String targetName = joinPoint.getTarget().getClass().getName();
+		String methodName = joinPoint.getSignature().getName();
+		Object[] arguments = joinPoint.getArgs();
+		Class targetClass = Class.forName(targetName);
+		Method[] methods = targetClass.getMethods();
+		String description = "";
+		for (Method method : methods) {
+			if (method.getName().equals(methodName)) {
+				Class[] clazzs = method.getParameterTypes();
+				if (clazzs.length == arguments.length) {
+
+					if (!isExceptionLog)
+						description = method.getAnnotation(ServiceLog.class).description();
+					else
+						description = method.getAnnotation(ThrowExceptionLog.class).description();
+					break;
+				}
+			}
+		}
+		return description;
+	}
+
+	/**
+	 * 获取注解中对方法的描述信息 用于Controller层注解
+	 * @param joinPoint
+	 * @return 方法描述
+	 * @throws Exception
+	 */
+	public static String getControllerMethodDescription(JoinPoint joinPoint) throws Exception {
+		String targetName = joinPoint.getTarget().getClass().getName();
+		String methodName = joinPoint.getSignature().getName();
+		Object[] arguments = joinPoint.getArgs();
+		Class targetClass = Class.forName(targetName);
+		Method[] methods = targetClass.getMethods();
+		String description = "";
+		for (Method method : methods) {
+			if (method.getName().equals(methodName)) {
+				Class[] clazzs = method.getParameterTypes();
+				if (clazzs.length == arguments.length) {
+					description = method.getAnnotation(ControllerLog.class).description();
+					break;
+				}
+			}
+		}
+		return description;
+	}
+}

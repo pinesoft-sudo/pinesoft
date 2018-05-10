@@ -1,0 +1,11 @@
+1517466866970	Copy file
+1517468799747	Encapsulate field 'filepath'
+1517468803066	Encapsulate field 'liveuser'
+1517469275426	Move 'application-dev.properties' to 'config'
+1517469278382	Move 'application-prod.properties' to 'config'
+1517469280241	Move 'application.properties' to 'config'
+1517469330852	Move 'custom.properties' to 'config'
+1517469621630	Copy file
+1517469639667	Delete element
+1517469648002	Move 'custom.properties' to 'config'
+1517472665154	Move 'index.jsp' to 'view'

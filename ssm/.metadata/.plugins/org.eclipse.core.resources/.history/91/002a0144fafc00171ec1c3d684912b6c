@@ -1,0 +1,27 @@
+package org.pine.boot;
+
+
+import java.io.IOException;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
+
+//该注解可以包括下面三个注解，但默认需要将该文件置于类的顶级位置
+@SpringBootApplication 
+/*@Configuration
+@EnableAutoConfiguration
+@ComponentScan*/
+public class TestBootApplication {
+	public static void main(String[] args) throws IOException {
+		SpringApplication.run(TestBootApplication.class, args);
+	}
+	
+	@Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
+    }
+}

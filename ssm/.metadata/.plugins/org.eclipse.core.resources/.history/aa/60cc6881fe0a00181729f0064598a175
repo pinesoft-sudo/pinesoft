@@ -1,0 +1,22 @@
+package org.pine.boot.config;
+
+import org.springframework.amqp.core.Queue;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+@Configuration
+@PropertySource("classpath:config/custom.properties")
+public class RabbitConfig {
+
+	@Autowired
+	private CustomConfig conf;
+
+	@Bean
+	public Queue Queue() {
+		return new Queue(conf.getQueue());
+	}
+}
+
+

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="com.pinesoft.core"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="pinesoft-configuration"/>
+			<item value="pinesoft-boot-pom"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="F:\工作项目\源代码\eclips\pinesoft\pinesoft-platform-pom"/>
+			<item value="F:\工作项目\源代码\eclips\pinesoft\pinesoft-integration-pom"/>
+			<item value="F:\工作项目\源代码\eclips\pinesoft\pinesoft-boot-pom\pinesoft-configuration"/>
+			<item value="F:\工作项目\源代码\eclips\pinesoft\pinesoft-configuration"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item value="All Catalogs" key="catalog"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenModuleWizardParentPage">
+		<list key="moduleName">
+			<item value="pinesoft-configuration"/>
+			<item value="pinesoft-common"/>
+			<item value="pinesoft-webmagic"/>
+			<item value="pinesoft-solr"/>
+			<item value="pinesoft-netty"/>
+			<item value="pinesoft-mybaits"/>
+			<item value="pinesoft-redis"/>
+			<item value="pinesoft-mq"/>
+			<item value="pinesoft-log"/>
+			<item value="pinesoft-configur"/>
+			<item value="pinesoft-cloud-pom"/>
+			<item value="pinesoft-cloud-"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="F:\工作项目\源代码\eclips\pinesoft\pinesoft-integration-pom"/>
+			<item value="F:\工作项目\源代码\eclips\pinesoft\pinesoft-boot-pom"/>
+			<item value="F:\工作项目\源代码\eclips\pinesoft\pinesoft-boot-parent"/>
+			<item value="F:\工作项目\源代码\eclips\pinesoft\frame.boot.parent"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="org.pinesoft.configuration"/>
+		</list>
+		<list key="groupId">
+			<item value="com.pinesoft.core"/>
+		</list>
+		<list key="artifactId">
+			<item value="pinesoft-configuration"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1"/>
+		</list>
+	</section>
+</section>

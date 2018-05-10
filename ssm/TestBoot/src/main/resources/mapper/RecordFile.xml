@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.pine.boot.dao.RecordFileMapper">
+	<resultMap id="BaseResultMap" type="RecordFile">
+		<result column="GUID" jdbcType="VARCHAR" property="guid" />
+		<result column="FILENAME" jdbcType="VARCHAR" property="filename" />
+		<result column="FILESIZE" jdbcType="DECIMAL" property="filesize" />
+		<result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+	</resultMap>
+	<sql id="Where_Clause">
+		<if test="criteria.valid">
+			<trim prefix="(" suffix=")" prefixOverrides="and">
+				<foreach collection="criteria.criteria" item="criterion">
+					<choose>
+						<when test="criterion.noValue">
+							and ${criterion.condition}
+						</when>
+						<when test="criterion.singleValue">
+							and ${criterion.condition} #{criterion.value}
+						</when>
+						<when test="criterion.betweenValue">
+							and ${criterion.condition} #{criterion.value} and
+							#{criterion.secondValue}
+						</when>
+						<when test="criterion.listValue">
+							and ${criterion.condition}
+							<foreach collection="criterion.value" item="listItem" open="(" close=")" separator=",">
+								#{listItem}
+							</foreach>
+						</when>
+					</choose>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+	<sql id="Filter_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<include refid="Where_Clause" />
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Filter_Where_Clause">
+		<where>
+			<foreach collection="Filter.oredCriteria" item="criteria" separator="or">
+				<include refid="Where_Clause" />
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		GUID,FILENAME,FILESIZE,MODIFIED
+	</sql>
+	<select id="selectByFilter" parameterType="org.pine.common.criteria.Filter" resultMap="BaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from T_RECORDFILE
+		<if test="_parameter != null">
+			<include refid="Filter_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<delete id="deleteByFilter" parameterType="org.pine.common.criteria.Filter">
+		delete from T_RECORDFILE
+		<if test="_parameter != null">
+			<include refid="Filter_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="RecordFile">
+		insert into T_RECORDFILE
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="guid != null">
+				GUID,
+			</if>
+			<if test="filename != null">
+				FILENAME,
+			</if>
+			<if test="filesize != null">
+				FILESIZE,
+			</if>
+			<if test="modified != null">
+				MODIFIED,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="guid != null">
+				#{guid,jdbcType=VARCHAR},
+			</if>
+			<if test="filename != null">
+				#{filename,jdbcType=VARCHAR},
+			</if>
+			<if test="filesize != null">
+				#{filesize,jdbcType=DECIMAL},
+			</if>
+			<if test="modified != null">
+				#{modified,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<insert id="insertList" parameterType="java.util.List">
+		insert into T_RECORDFILE
+		(GUID,FILENAME,FILESIZE,MODIFIED)
+		<foreach collection="list" item="model" index="index" open="(" close=")" separator="union all">
+			select #{model.guid,jdbcType=VARCHAR}
+			, #{model.filename,jdbcType=VARCHAR}
+			<if test="model.filesize!= null">
+				, #{model.filesize,jdbcType=DECIMAL}
+			</if>
+			<if test="model.filesize== null">
+				,''
+			</if>
+			<if test="model.modified!= null">
+				, #{model.modified,jdbcType=VARCHAR}
+			</if>
+			<if test="model.modified == null">
+				,''
+			</if>
+			from dual
+		</foreach>
+	</insert>
+	<select id="countByFilter" parameterType="org.pine.common.criteria.Filter" resultType="java.lang.Long">
+		select count(*) from T_RECORDFILE
+		<if test="_parameter != null">
+			<include refid="Filter_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByFilterSelective" parameterType="map">
+		update T_RECORDFILE
+		<set>
+			<if test="record.guid != null">
+				GUID = #{record.guid,jdbcType=VARCHAR},
+			</if>
+			<if test="record.filename != null">
+				FILENAME = #{record.filename,jdbcType=VARCHAR},
+			</if>
+			<if test="record.filesize != null">
+				FILESIZE = #{record.filesize,jdbcType=DECIMAL},
+			</if>
+			<if test="record.modified != null">
+				MODIFIED = #{record.modified,jdbcType=VARCHAR},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Filter_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByFilter" parameterType="map">
+		update T_RECORDFILE
+		set GUID =
+		#{record.guid,jdbcType=VARCHAR},
+		FILENAME =
+		#{record.filename,jdbcType=VARCHAR},
+		FILESIZE =
+		#{record.filesize,jdbcType=DECIMAL},
+		MODIFIED =
+		#{record.modified,jdbcType=VARCHAR}
+		<if test="_parameter != null">
+			<include refid="Update_By_Filter_Where_Clause" />
+		</if>
+	</update>
+</mapper>
