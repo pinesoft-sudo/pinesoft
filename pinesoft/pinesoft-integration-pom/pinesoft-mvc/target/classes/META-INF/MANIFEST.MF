@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: pinesoft-mvc
+Implementation-Version: 0.0.1
+Built-By: Administrator
+Implementation-Vendor-Id: com.pinesoft.core
+Build-Jdk: 1.8.0_102
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/pinesoft-integration-pom/pinesoft-mvc
+Created-By: Maven Integration for Eclipse
+

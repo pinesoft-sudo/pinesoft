@@ -1,0 +1,11 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.pinesoft.core</groupId>
+    <artifactId>pinesoft-integration-pom</artifactId>
+    <version>0.0.1</version>
+  </parent>
+  <artifactId>pinesoft-common</artifactId>
+  <name>公共处理类库</name>
+  <description>用于存放公共处理类的类库（jar）</description>
+</project>

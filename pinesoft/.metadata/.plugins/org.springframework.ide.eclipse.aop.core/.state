@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="pinesoft-redis"/>
+<aop-project name="pinesoft-mybaits"/>
+<aop-project name="pinesoft-mq"/>
+<aop-project name="pinesoft-solr"/>
+<aop-project name="pinesoft-test-start"/>
+<aop-project name="pinesoft-common"/>
+<aop-project name="pinesoft-webmagic"/>
+<aop-project name="pinesoft-log"/>
+<aop-project name="pinesoft-netty"/>
+</aop-reference-model>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1523164347791_1" label="pinesoft-integration-pom" name="pinesoft-integration-pom">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-mq" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-netty" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-log" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-configuration" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-mybaits" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1523167695784_2" label="pinesoft-platform-pom" name="pinesoft-platform-pom">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-test-start" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1526001850951_3" label="PinesoftParent" name="PinesoftParent"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1526006037232_4" label="pinesoft-cloud-pom" name="pinesoft-cloud-pom">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-eureka-server" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-hystrix-server" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1526015914380_5" label="pinesoft-boot-pom" name="pinesoft-boot-pom">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-webmagic" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/pinesoft-solr" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1523154179024_0" label="Window Working Set" name="Aggregate for window 1523154179023"/>
+</workingSetManager>

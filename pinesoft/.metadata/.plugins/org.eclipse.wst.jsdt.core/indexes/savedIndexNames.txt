@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+F:\工作项目\源代码\eclips\pinesoft\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3301314639.index
+671081021.index
+314111252.index
+3337102187.index
+4125623603.index
+3721755604.index
