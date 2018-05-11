@@ -1,7 +1,0 @@
-#公共环境参数
-
-#指向开发环境
-spring.profiles.active=dev
-
-#log4j2配置
-logging.config=classpath:log4j2.xml

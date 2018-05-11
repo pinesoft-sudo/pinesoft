@@ -1,9 +1,0 @@
-1506504584020	Rename package 'org.pine'
-1506504621751	Rename package 'org.pine.entity'
-1506504626731	Delete element
-1506504722501	Rename package 'solr'
-1506564164019	Delete element
-1506564389766	Rename type 'QueryAnd'
-1506565577152	Rename type 'QueryBuilder'
-1506666906697	Rename type 'ConfigRecord'
-1506667154230	Rename type 'Template'

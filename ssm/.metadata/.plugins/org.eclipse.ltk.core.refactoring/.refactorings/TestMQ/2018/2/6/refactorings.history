@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;org.pine.TestMQ.AppTest&apos; to &apos;AppMain&apos;&#x0D;&#x0A;- Original project: &apos;TestMQ&apos;&#x0D;&#x0A;- Original element: &apos;org.pine.TestMQ.AppTest&apos;&#x0D;&#x0A;- Renamed element: &apos;org.pine.TestMQ.AppMain&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Rename similarly named elements&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;AppTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/test\/java&lt;org.pine.TestMQ{AppTest.java[AppTest" matchStrategy="1" name="AppMain" qualified="false" references="true" similarDeclarations="true" stamp="1517798712133" textual="false" version="1.0"/>
-</session>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring accessors="true" comment="Delete element from project &apos;PinesoftFrame&apos;&#x0D;&#x0A;- Original project: &apos;PinesoftFrame&apos;&#x0D;&#x0A;- Original element: &apos;PinesoftFrame/src/main/java/org.pine.solr&apos;&#x0D;&#x0A;- Delete subpackages" description="Delete element" element1="/src\/main\/java&lt;org.pine.solr.service" element2="/src\/main\/java&lt;org.pine.solr.mapper" element3="/src\/main\/java&lt;org.pine.solr.controller" element4="/src\/main\/java&lt;org.pine.solr" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1507601418447" subPackages="true" version="1.0"/>
-</session>
