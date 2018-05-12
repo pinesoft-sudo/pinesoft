@@ -128,3 +128,6 @@ Caused by: java.io.FileNotFoundException: class path resource [org/springframewo
 2018-05-12 20:18:51.001  WARN 1026228 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
 2018-05-12 20:18:51.011  WARN 1026228 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
 2018-05-12 20:18:52.628  WARN 1026228 --- [main] c.n.eureka.cluster.PeerEurekaNodes       : The replica size seems to be empty. Check the route 53 DNS Registry
+2018-05-12 21:11:23.067  WARN 1053972 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-05-12 21:11:23.079  WARN 1053972 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-05-12 21:11:24.599  WARN 1053972 --- [main] c.n.eureka.cluster.PeerEurekaNodes       : The replica size seems to be empty. Check the route 53 DNS Registry
