@@ -125,3 +125,6 @@ Caused by: java.io.FileNotFoundException: class path resource [org/springframewo
 2018-05-11 18:12:09.174  WARN 2484 --- [Eureka-PeerNodesUpdater] c.n.eureka.cluster.PeerEurekaNodes       : The replica size seems to be empty. Check the route 53 DNS Registry
 2018-05-11 18:22:09.176  WARN 2484 --- [Eureka-PeerNodesUpdater] c.n.eureka.cluster.PeerEurekaNodes       : The replica size seems to be empty. Check the route 53 DNS Registry
 2018-05-11 18:32:09.190  WARN 2484 --- [Eureka-PeerNodesUpdater] c.n.eureka.cluster.PeerEurekaNodes       : The replica size seems to be empty. Check the route 53 DNS Registry
+2018-05-12 20:18:51.001  WARN 1026228 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-05-12 20:18:51.011  WARN 1026228 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-05-12 20:18:52.628  WARN 1026228 --- [main] c.n.eureka.cluster.PeerEurekaNodes       : The replica size seems to be empty. Check the route 53 DNS Registry
