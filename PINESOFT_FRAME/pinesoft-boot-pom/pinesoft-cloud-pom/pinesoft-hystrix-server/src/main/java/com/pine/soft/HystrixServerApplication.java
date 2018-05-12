@@ -15,6 +15,6 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
 public class HystrixServerApplication {
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(HystrixServerApplication.class, args);
-		System.out.println("熔断监控已经启动");
+		System.out.println("熔断监控中心已经启动");
 	}
 }
