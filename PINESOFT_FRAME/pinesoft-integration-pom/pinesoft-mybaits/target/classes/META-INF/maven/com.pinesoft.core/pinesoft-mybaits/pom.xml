@@ -1,9 +1,62 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-    <parent>
-    <groupId>com.pinesoft.core</groupId>
-    <artifactId>pinesoft-integration-pom</artifactId>
-    <version>0.0.1</version>
-  </parent>
-  <artifactId>pinesoft-mybaits</artifactId>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.pinesoft.core</groupId>
+		<artifactId>pinesoft-integration-pom</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>pinesoft-mybaits</artifactId>
+	<properties>
+		<oracle.driver.version>10.2.0.1.0</oracle.driver.version>
+		<mybatis.boot.version>1.3.1</mybatis.boot.version>
+		<mapper.boot.version>1.1.5</mapper.boot.version>
+		<druid.version>1.1.9</druid.version>
+		<pagehelper.boot.version>1.2.3</pagehelper.boot.version>
+	</properties>
+
+	<dependencies>
+		<!-- alibaba的数据连接池 .1.1.8版本后添加了对springboot各版本的支持 -->
+		<!-- <dependency> <groupId>com.alibaba</groupId> <artifactId>druid</artifactId> 
+			<version>${druid.version}</version> </dependency> -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+		<!-- spring boot整合mybatis -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>${mybatis.boot.version}</version>
+		</dependency>
+		<!-- springboot整合通用mapper -->
+		<!-- https://mvnrepository.com/artifact/tk.mybatis/mapper-spring-boot-starter -->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper-spring-boot-starter</artifactId>
+			<version>${mapper.boot.version}</version>
+		</dependency>
+		<!--springboot整合通用pagehelper -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>${pagehelper.boot.version}</version>
+		</dependency>
+		<!-- oracle数据库连接驱动 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>${oracle.driver.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
