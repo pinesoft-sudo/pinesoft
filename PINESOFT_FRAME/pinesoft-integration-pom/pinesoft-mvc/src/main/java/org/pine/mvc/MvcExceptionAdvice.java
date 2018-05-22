@@ -14,7 +14,7 @@ public class MvcExceptionAdvice {
 		MvcResponse response = new MvcResponse();
 		String msg = e.getMessage();
 		if (msg == null || msg.equals("")) {
-			msg = "server error !";
+			msg = "service error !";
 		}
 		response.setMessage(msg);
 		response.setResult(ResultEnums.Error);
