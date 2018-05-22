@@ -2,21 +2,18 @@ package org.pine.mvc.base;
 
 import java.util.List;
 
+import org.pine.soft.mapper.contract.IMapper;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-/**
- * @author xier:
- * @Description:插入接口
- * @date 创建时间：2017年12月1日 下午3:25:19
- * @version 1.0
- * @parameter
- * @since
- * @return
- */
 public class BaseInsertController<T> extends BaseMapperController<T> {
+
+	public BaseInsertController(IMapper<T> mapper) {
+		super(mapper);
+		// TODO Auto-generated constructor stub
+	}
 
 	@PostMapping(value = "")
 	public int insert(@Validated @RequestBody T record) throws Exception {
@@ -33,13 +30,20 @@ public class BaseInsertController<T> extends BaseMapperController<T> {
 	@Transactional
 	@PostMapping(value = "all")
 	public int insertAll(@Validated @RequestBody List<T> records) throws Exception {
-		return mapper.insertAll(records);
+		int count = 0;
+		for (T record : records) {
+			count = count + mapper.insert(record);
+		}
+		return count;
 	}
 
 	@Transactional
 	@PostMapping(value = "all/selective")
 	public int insertAllSelective(@RequestBody List<T> records) throws Exception {
-
-		return mapper.insertAllSelective(records);
+		int count = 0;
+		for (T record : records) {
+			count = count + mapper.insertSelective(record);
+		}
+		return count;
 	}
 }

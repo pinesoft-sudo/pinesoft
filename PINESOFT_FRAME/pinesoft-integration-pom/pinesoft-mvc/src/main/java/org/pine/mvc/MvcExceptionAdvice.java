@@ -1,27 +1,12 @@
-package org.pine.mvc.base;
+package org.pine.mvc;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.pine.mvc.MvcResponse.ResultEnums;
 
-import com.gisquest.MvcResponse;
-import com.gisquest.MvcResponse.ResultEnums;
-
-/**
- * @author xier:
- * @Description:
- * @date 创建时间：2018年2月8日 上午9:56:55
- * @version 2.0
- * @parameter
- * @since
- * @return
- */
 @ControllerAdvice
-public class ExceptionControllerAdvice {
-	private Logger logger = LoggerFactory.getLogger(ExceptionControllerAdvice.class);
-
+public class MvcExceptionAdvice {
 	@ResponseBody
 	@ExceptionHandler(Exception.class)
 	public MvcResponse handleException(Exception e) {
@@ -32,7 +17,6 @@ public class ExceptionControllerAdvice {
 		}
 		response.setMessage(msg);
 		response.setResult(ResultEnums.Error);
-		logger.error(e.toString());
 		return response;
 	}
 

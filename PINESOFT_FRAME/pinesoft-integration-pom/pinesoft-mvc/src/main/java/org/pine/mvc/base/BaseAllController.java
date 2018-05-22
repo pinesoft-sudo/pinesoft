@@ -4,6 +4,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
 
+import org.pine.soft.mapper.contract.IMapper;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,19 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.gisquest.drag.entity.DragContent;
-import com.gisquest.ie.entity.ImportContent;
 
-/**
- * @author xier:
- * @Description:默认所有接口
- * @date 创建时间：2017年12月1日 上午9:44:39
- * @version 1.0
- * @parameter
- * @since
- * @return
- */
 public class BaseAllController<T> extends BaseMapperController<T> {
+	
+	public BaseAllController(IMapper<T> mapper) {
+		super(mapper);
+		// TODO Auto-generated constructor stub
+	}
 
 	@GetMapping(value = "all")
 	public List<T> selectAll() throws Exception {
@@ -84,6 +79,7 @@ public class BaseAllController<T> extends BaseMapperController<T> {
 		return mapper.deleteByPrimaryKey(key);
 	}
 
+	@SuppressWarnings({ "unused", "unchecked" })
 	@PutMapping(value = "conditon/selective")
 	public int updateByExampleSelective(@RequestBody Map<String, Object> map) throws Exception {
 		final String recordKey = "record";
@@ -105,15 +101,6 @@ public class BaseAllController<T> extends BaseMapperController<T> {
 			throw new Exception("不存在condition键值！");
 		}
 		return 0;
-		// try {
-		// Condition r = JSON.parseObject(recordObj.toString(), new
-		// TypeReference<Condition>() throws Exception {
-		// });
-		// T record = JSON.parseObject(recordStr, entityClass);
-		// } catch (Exception e) {
-		// // TODO: handle exception
-		// }
-		// return mapper.updateByExampleSelective(record, example);
 	}
 
 	@PutMapping(value = "key")
@@ -145,43 +132,30 @@ public class BaseAllController<T> extends BaseMapperController<T> {
 
 		return mapper.insertSelective(record);
 	}
-
+	
 	@Transactional
 	@PostMapping(value = "all")
-	public int insertAll(@Validated @RequestBody List<T> records) throws Exception {
-		return mapper.insertAll(records);
+	public int insertAll( @RequestBody List<T> records) throws Exception {
+		int count = 0;
+		for (T record : records) {
+			count = count + mapper.insert(record);
+		}
+		return count;
 	}
 
 	@Transactional
 	@PostMapping(value = "all/selective")
 	public int insertAllSelective(@RequestBody List<T> records) throws Exception {
-
-		return mapper.insertAllSelective(records);
+		int count = 0;
+		for (T record : records) {
+			count = count + mapper.insertSelective(record);
+		}
+		return count;
 	}
 
 	@GetMapping(value = "/copy/{key}")
 	public int copyByPrimaryKey(@PathVariable("key") String key) throws Exception {
-		return mapper.copyByPrimaryKey(key);
+		T record = selectByPrimaryKey(key);
+		return mapper.insert(record);
 	}
-
-	@GetMapping(value = "/export/{key}")
-	public String export(@PathVariable("key") String key) throws Exception {
-		return "";
-	}
-
-	@GetMapping(value = "/export")
-	public String exportAll() throws Exception {
-		return "";
-	}
-
-	@PostMapping(value = "/import")
-	public String importXml(@RequestBody ImportContent content) throws Exception {
-		return null;
-	}
-
-	@PostMapping(value = "/drop")
-	public String drop(@RequestBody DragContent content) throws Exception {
-		return null;
-	}
-
 }

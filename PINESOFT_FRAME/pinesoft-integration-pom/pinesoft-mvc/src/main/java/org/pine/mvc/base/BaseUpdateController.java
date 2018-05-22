@@ -3,22 +3,18 @@ package org.pine.mvc.base;
 import java.lang.reflect.ParameterizedType;
 import java.util.Map;
 
+import org.pine.soft.mapper.contract.IMapper;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.gisquest.MvcException;
+public  class BaseUpdateController<T> extends BaseMapperController<T> {
 
-/**
- * @author xier:
- * @Description:修改接口
- * @date 创建时间：2017年12月1日 下午3:25:41
- * @version 1.0
- * @parameter
- * @since
- * @return
- */
-public class BaseUpdateController<T> extends BaseMapperController<T> {
+	public BaseUpdateController(IMapper<T> mapper) {
+		super(mapper);
+		// TODO Auto-generated constructor stub
+	}
 
+	@SuppressWarnings({ "unchecked", "unused" })
 	@PutMapping(value = "conditon/selective")
 	public int updateByExampleSelective(@RequestBody Map<String, Object> map) throws Exception {
 		final String recordKey = "record";
@@ -28,16 +24,16 @@ public class BaseUpdateController<T> extends BaseMapperController<T> {
 			entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
 					.getActualTypeArguments()[0];
 		} catch (Exception e) {
-			throw new MvcException("无法获取泛型T class！");
+			throw new Exception("无法获取泛型T class！");
 		}
 
 		Object recordObj = map.get(recordKey);
 		Object conditionObj = map.get(conditonKey);
 		if (recordObj == null) {
-			throw new MvcException("不存在record键值！");
+			throw new Exception("不存在record键值！");
 		}
 		if (conditionObj == null) {
-			throw new MvcException("不存在condition键值！");
+			throw new Exception("不存在condition键值！");
 		}
 		return 0;
 	}

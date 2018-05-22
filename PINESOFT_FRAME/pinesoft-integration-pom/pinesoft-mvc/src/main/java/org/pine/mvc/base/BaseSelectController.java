@@ -2,21 +2,18 @@ package org.pine.mvc.base;
 
 import java.util.List;
 
+import org.pine.soft.mapper.contract.IMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-/**
- * @author xier:
- * @Description:查询接口
- * @date 创建时间：2017年12月1日 下午3:24:06
- * @version 1.0
- * @parameter
- * @since
- * @return
- */
-public class BaseSelectController<T> extends BaseMapperController<T> {
+public  class BaseSelectController<T> extends BaseMapperController<T> {
+
+	public BaseSelectController(IMapper<T> mapper) {
+		super(mapper);
+		// TODO Auto-generated constructor stub
+	}
 
 	@GetMapping(value = "all")
 	public List<T> selectAll() throws Exception {
