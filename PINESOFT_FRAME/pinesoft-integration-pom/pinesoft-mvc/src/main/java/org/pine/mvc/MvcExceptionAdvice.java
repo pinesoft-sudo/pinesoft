@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.pine.mvc.MvcResponse.ResultEnums;
 
+//@ControllerAdvice + @ExceptionHandler 全局处理 Controller 层异常
 @ControllerAdvice
 public class MvcExceptionAdvice {
 	@ResponseBody
@@ -13,7 +14,7 @@ public class MvcExceptionAdvice {
 		MvcResponse response = new MvcResponse();
 		String msg = e.getMessage();
 		if (msg == null || msg.equals("")) {
-			msg = "服务器报错！";
+			msg = "server error !";
 		}
 		response.setMessage(msg);
 		response.setResult(ResultEnums.Error);
