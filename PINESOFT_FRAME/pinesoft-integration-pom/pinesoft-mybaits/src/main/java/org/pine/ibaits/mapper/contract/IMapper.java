@@ -1,4 +1,4 @@
-package org.pine.soft.mapper.contract;
+package org.pine.ibaits.mapper.contract;
 
 import tk.mybatis.mapper.common.Mapper;
 

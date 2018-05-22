@@ -1,4 +1,4 @@
-package org.pine.soft.config;
+package org.pine.ibaits.config;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
 import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
-import org.pine.soft.datasource.DynamicDataSource;
+import org.pine.ibaits.datasource.DynamicDataSource;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;

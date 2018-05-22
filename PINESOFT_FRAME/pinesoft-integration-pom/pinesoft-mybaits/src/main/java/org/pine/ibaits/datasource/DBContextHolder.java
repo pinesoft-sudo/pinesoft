@@ -1,4 +1,4 @@
-package org.pine.soft.datasource;
+package org.pine.ibaits.datasource;
 
 /**
  * 线程安全的ThreadLocal 切换数据源

@@ -1,11 +1,11 @@
-package org.pine.soft.datasource;
+package org.pine.ibaits.datasource;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.pine.soft.config.DataSourceConfig;
+import org.pine.ibaits.config.DataSourceConfig;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 import com.alibaba.druid.pool.DruidDataSource;

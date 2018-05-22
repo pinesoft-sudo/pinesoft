@@ -1,4 +1,4 @@
-package org.pine.soft.typehandler;
+package org.pine.ibaits.typehandler;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;

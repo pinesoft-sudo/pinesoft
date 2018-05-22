@@ -1,11 +1,11 @@
-package org.pine.soft.config;
+package org.pine.ibaits.config;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.pine.soft.datasource.DynamicDataSource;
+import org.pine.ibaits.datasource.DynamicDataSource;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;

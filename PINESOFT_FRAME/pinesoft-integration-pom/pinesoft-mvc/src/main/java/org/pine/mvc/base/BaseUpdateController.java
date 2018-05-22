@@ -3,7 +3,7 @@ package org.pine.mvc.base;
 import java.lang.reflect.ParameterizedType;
 import java.util.Map;
 
-import org.pine.soft.mapper.contract.IMapper;
+import org.pine.ibaits.mapper.contract.IMapper;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 

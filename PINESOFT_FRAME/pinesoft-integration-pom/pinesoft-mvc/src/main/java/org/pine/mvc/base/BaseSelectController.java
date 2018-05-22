@@ -2,7 +2,7 @@ package org.pine.mvc.base;
 
 import java.util.List;
 
-import org.pine.soft.mapper.contract.IMapper;
+import org.pine.ibaits.mapper.contract.IMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

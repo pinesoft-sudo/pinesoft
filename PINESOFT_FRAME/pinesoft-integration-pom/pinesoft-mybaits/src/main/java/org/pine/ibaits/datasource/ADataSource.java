@@ -1,4 +1,4 @@
-package org.pine.soft.datasource;
+package org.pine.ibaits.datasource;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

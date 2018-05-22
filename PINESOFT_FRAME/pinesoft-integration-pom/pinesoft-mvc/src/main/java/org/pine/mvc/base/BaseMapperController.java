@@ -1,7 +1,7 @@
 package org.pine.mvc.base;
 
+import org.pine.ibaits.mapper.contract.IMapper;
 import org.pine.mvc.MvcProperties;
-import org.pine.soft.mapper.contract.IMapper;
 
 public abstract class BaseMapperController<T> extends MvcProperties {
 	public IMapper<T> mapper;

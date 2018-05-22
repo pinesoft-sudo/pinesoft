@@ -1,4 +1,4 @@
-package org.pine.soft.mapper;
+package org.pine.ibaits.mapper;
 
 import java.util.ArrayList;
 import java.util.List;

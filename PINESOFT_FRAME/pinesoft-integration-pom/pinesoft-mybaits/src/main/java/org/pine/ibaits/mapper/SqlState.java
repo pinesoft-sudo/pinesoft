@@ -1,4 +1,4 @@
-package org.pine.soft.mapper;
+package org.pine.ibaits.mapper;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.mapping.BoundSql;

@@ -1,4 +1,4 @@
-package org.pine.soft.datasource;
+package org.pine.ibaits.datasource;
 
 public interface IDataSource {
 	String getDatasourceGuid();
