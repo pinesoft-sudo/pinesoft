@@ -27,10 +27,14 @@
 			<artifactId>socket.io-client</artifactId>
 			<version>${io-client.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.pinesoft.core</groupId>
 			<artifactId>pinesoft-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.pinesoft.core</groupId>
+			<artifactId>pinesoft-configuration</artifactId>
 		</dependency>
 	</dependencies>
 </project>

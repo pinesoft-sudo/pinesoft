@@ -55,6 +55,11 @@
 			<artifactId>ojdbc14</artifactId>
 			<version>${oracle.driver.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.pinesoft.core</groupId>
+			<artifactId>pinesoft-configuration</artifactId>
+		</dependency>
 	</dependencies>
-	
+
 </project>
