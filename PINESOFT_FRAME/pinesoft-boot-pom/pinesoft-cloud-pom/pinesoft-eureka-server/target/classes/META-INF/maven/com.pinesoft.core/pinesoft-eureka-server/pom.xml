@@ -20,6 +20,16 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+				<groupId>com.pinesoft.core</groupId>
+				<artifactId>pinesoft-log</artifactId>
+				<version>0.0.1</version>
+			</dependency>
+					<dependency>
+				<groupId>com.pinesoft.core</groupId>
+				<artifactId>pinesoft-netty</artifactId>
+				<version>0.0.1</version>
+			</dependency>
 	</dependencies>
 
 	<build>
