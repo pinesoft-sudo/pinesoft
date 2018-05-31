@@ -22,6 +22,7 @@ public class TestMQ {
 	public void queueTest() throws InterruptedException, IOException {
 		for (int i = 0; i < 10; i++) {
 			mQProducer.sendQueueMessage("gisquest mq queue test"+i);
+			Thread.sleep(2000);
 		}
 	}
 
@@ -29,7 +30,7 @@ public class TestMQ {
 	public void topicTest() throws InterruptedException, IOException {
 		for (int i = 0; i < 10; i++) {
 			mQProducer.sendTopicMessage("gisquest mq topic test"+i);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 		}
 
 	}
