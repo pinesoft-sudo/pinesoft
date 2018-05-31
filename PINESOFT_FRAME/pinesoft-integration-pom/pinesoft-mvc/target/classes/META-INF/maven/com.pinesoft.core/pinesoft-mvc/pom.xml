@@ -24,13 +24,13 @@
 			<artifactId>jstl-api</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>${fastjson.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -42,14 +42,17 @@
 			</exclusions>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		
+		<!-- 作为Eureka的客户端依赖，可以在调用端引用（灵活使用） -->
+		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId> 
+			</dependency> -->
+
 		<dependency>
 			<groupId>com.pinesoft.core</groupId>
 			<artifactId>pinesoft-mybaits</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.pinesoft.core</groupId>
+			<artifactId>pinesoft-log</artifactId>
+		</dependency>
 	</dependencies>
-	</project>
+</project>
