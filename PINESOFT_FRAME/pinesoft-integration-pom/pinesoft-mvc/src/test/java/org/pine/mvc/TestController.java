@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class TestController {
 
-	@Value("${spring.datasource.druid.url}")
+	@Value("${mybatis.mapper-locations}")
 	public String url;
 	
 	@ModelAttribute
