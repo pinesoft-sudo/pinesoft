@@ -55,6 +55,7 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			
 			<dependency>
 				<groupId>com.pinesoft.core</groupId>
 				<artifactId>pinesoft-common</artifactId>
