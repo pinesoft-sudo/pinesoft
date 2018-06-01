@@ -50,9 +50,5 @@
 			<groupId>com.pinesoft.core</groupId>
 			<artifactId>pinesoft-mybaits</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.pinesoft.core</groupId>
-			<artifactId>pinesoft-log</artifactId>
-		</dependency>
 	</dependencies>
 </project>

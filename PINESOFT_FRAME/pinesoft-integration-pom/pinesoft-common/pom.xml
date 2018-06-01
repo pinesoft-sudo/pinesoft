@@ -7,8 +7,6 @@
 		<version>0.0.1</version>
 	</parent>
 	<artifactId>pinesoft-common</artifactId>
-	<name>公共处理类库</name>
-	<description>用于存放公共处理类的类库（jar）</description>
 
 	<dependencies>
 		<!-- SpringContextUtil处理类依赖包 -->
@@ -51,4 +49,6 @@
 
 	</dependencies>
 
+	<name>公共处理类库</name>
+	<description>用于存放公共处理类的类库（jar）</description>
 </project>

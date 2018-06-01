@@ -4,8 +4,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import org.pine.common.entity.MessageInfo;
-import org.pine.common.entity.MessageInfo.ResultEnums;
+import org.pine.netty.NettyMessage;
+import org.pine.netty.NettyMessage.ResultEnums;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -49,16 +49,16 @@ public class MIServerHandler {
 
 	// 添加@OnEvent，事件消息接收入口，当接收到消息后，查找发送其他给客户端（web或client）
 	@OnEvent(value = "server")
-	public void onEvent(SocketIOClient client, AckRequest request, MessageInfo data) {
+	public void onEvent(SocketIOClient client, AckRequest request, NettyMessage data) {
 		// System.out.println("客户端：" + data.getMessage());
 		for (UUID uuid : listClient) {
 			if (!client.getSessionId().equals(uuid)) {
 				if (data.getData() == null) {
 					socketIoServer.getClient(uuid).sendEvent("web",
-							new MessageInfo(ResultEnums.Success, data.getMessage()));
+							new NettyMessage(ResultEnums.Success, data.getMessage()));
 				} else {
 					socketIoServer.getClient(uuid).sendEvent("client",
-							new MessageInfo(ResultEnums.Success, data.getMessage()));
+							new NettyMessage(ResultEnums.Success, data.getMessage()));
 				}
 			}
 		}
@@ -76,7 +76,7 @@ public class MIServerHandler {
 		for (UUID clientId : listClient) {
 			if (socketIoServer.getClient(clientId) != null) {
 				socketIoServer.getClient(clientId).sendEvent("web",
-						new MessageInfo(ResultEnums.Success, "push data:" + msg), data);
+						new NettyMessage(ResultEnums.Success, "push data:" + msg), data);
 			}
 		}
 	}
@@ -85,7 +85,7 @@ public class MIServerHandler {
 		for (UUID clientId : listClient) {
 			if (socketIoServer.getClient(clientId) != null) {
 				socketIoServer.getClient(clientId).sendEvent("client",
-						new MessageInfo(ResultEnums.Success, "push data:" + msg), data);
+						new NettyMessage(ResultEnums.Success, "push data:" + msg), data);
 			}
 		}
 	}

@@ -2,8 +2,9 @@ package org.pine.netty.client;
 
 import java.net.URISyntaxException;
 
-import org.pine.common.entity.MessageInfo;
-import org.pine.common.entity.MessageInfo.ResultEnums;
+import org.pine.netty.NettyMessage;
+import org.pine.netty.NettyMessage.ResultEnums;
+
 import com.alibaba.fastjson.JSON;
 
 import io.socket.client.IO;
@@ -40,7 +41,7 @@ public class MIClientHandler {
 			@Override
 			public void call(Object... args) {
 				// 发送到服务器
-				socket.emit("server", JSON.toJSON(new MessageInfo(ResultEnums.Success, msg)));
+				socket.emit("server", JSON.toJSON(new NettyMessage(ResultEnums.Success, msg)));
 			}
 		});
 		socket.on(Socket.EVENT_CONNECT_TIMEOUT, new Emitter.Listener() {// 连接超时
@@ -69,7 +70,7 @@ public class MIClientHandler {
 			@Override
 			public void call(Object... args) {
 				System.out.println("client receive");
-				MessageInfo s = JSON.parseObject(args[0].toString(), MessageInfo.class);
+				NettyMessage s = JSON.parseObject(args[0].toString(), NettyMessage.class);
 				if (s != null) {
 					System.out.println("server data : " + s.getMessage());
 				}

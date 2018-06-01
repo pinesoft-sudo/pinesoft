@@ -9,14 +9,6 @@
 	<artifactId>pinesoft-mq</artifactId>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.pinesoft.core</groupId>
-			<artifactId>pinesoft-configuration</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pinesoft.core</groupId>
-			<artifactId>pinesoft-log</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -32,6 +24,15 @@
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-pool</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.pinesoft.core</groupId>
+			<artifactId>pinesoft-configuration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.pinesoft.core</groupId>
+			<artifactId>pinesoft-log</artifactId>
 		</dependency>
 	</dependencies>
 

@@ -10,6 +10,7 @@
 	<properties>
 		<netty-socketio.version>1.7.15</netty-socketio.version>
 		<io-client.version>1.0.0</io-client.version>
+		<fastjson.version>1.2.6</fastjson.version>
 	</properties>
 
 	<dependencies>
@@ -27,14 +28,21 @@
 			<artifactId>socket.io-client</artifactId>
 			<version>${io-client.version}</version>
 		</dependency>
+		
+		<!-- json格式化对象依赖包 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.pinesoft.core</groupId>
-			<artifactId>pinesoft-common</artifactId>
+			<artifactId>pinesoft-configuration</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.pinesoft.core</groupId>
-			<artifactId>pinesoft-configuration</artifactId>
+			<artifactId>pinesoft-log</artifactId>
 		</dependency>
 	</dependencies>
 </project>

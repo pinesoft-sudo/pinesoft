@@ -60,6 +60,10 @@
 			<groupId>com.pinesoft.core</groupId>
 			<artifactId>pinesoft-configuration</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.pinesoft.core</groupId>
+			<artifactId>pinesoft-log</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>
