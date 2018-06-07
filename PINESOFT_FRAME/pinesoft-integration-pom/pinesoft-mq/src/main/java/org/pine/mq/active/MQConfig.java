@@ -15,12 +15,11 @@ import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.util.StringUtils;
 
-@SuppressWarnings("unused")
 @Configuration
 public class MQConfig {
 
 	@Autowired
-	private MQProperties mQProperties;
+	private MQProperties mqProperties;
 
 	public static final String DEFAULT_QUEUE_NAME = "pinesoft-queue";
 	public static final String DEFAULT_TOPIC_NAME = "pinesoft-topic";
@@ -28,8 +27,8 @@ public class MQConfig {
 	public static final String TOPIC_LISTENER_CONTAINER_FACTORY = "jmsListenerContainerTopic";
 
 	@Bean
-	public Queue queue() {
-		String queueName = mQProperties.getQueueName();
+	public Queue queue_active() {
+		String queueName = mqProperties.getQueueName();
 		if (StringUtils.isEmpty(queueName))
 			queueName = DEFAULT_QUEUE_NAME;
 		return new ActiveMQQueue(queueName);
@@ -37,7 +36,7 @@ public class MQConfig {
 
 	@Bean
 	public Topic topic() {
-		String topicName = mQProperties.getTopicName();
+		String topicName = mqProperties.getTopicName();
 		if (StringUtils.isEmpty(topicName))
 			topicName = DEFAULT_TOPIC_NAME;
 		return new ActiveMQTopic(topicName);
@@ -64,7 +63,7 @@ public class MQConfig {
 	//由于springboot已经集成ActiveMQ相关组件和配置（在application.properties），故在开启或不开启线程池，该bean都可以不用注入
 	@ConditionalOnProperty(prefix = "spring.activemq.pool", name = "enabled", havingValue = "false", matchIfMissing = true)
 	public ActiveMQConnectionFactory jmsConnectionFactory() {
-		return new MQConnectionFactories(mQProperties)
+		return new MQConnectionFactories(mqProperties)
 				.createConnectionFactory(ActiveMQConnectionFactory.class);
 	}
 

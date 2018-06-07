@@ -14,7 +14,7 @@ public class MQProducer {
 	@Resource(name = "jmsMessagingTemplate")
 	private JmsMessagingTemplate jmsTemplate;
 	@Autowired
-	private Queue queue;
+	private Queue queue_active;
 	@Autowired
 	private Topic topic;
 
@@ -22,10 +22,12 @@ public class MQProducer {
 		jmsTemplate.convertAndSend(destination, message);
 	}
 
+	//队列发送方式
 	public void sendQueueMessage(final Object message) {
-		jmsTemplate.convertAndSend(queue, message);
+		jmsTemplate.convertAndSend(queue_active, message);
 	}
 
+	// 发布/订阅方式
 	public void sendTopicMessage(final Object message) {
 		jmsTemplate.convertAndSend(topic, message);
 	}

@@ -9,7 +9,7 @@
 	<artifactId>pinesoft-mq</artifactId>
 
 	<dependencies>
-
+		<!-- 开启springboot activemq功能 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-activemq</artifactId>
@@ -19,6 +19,12 @@
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<!-- 开启springboot rabbitmq功能 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 
 		<dependency>
