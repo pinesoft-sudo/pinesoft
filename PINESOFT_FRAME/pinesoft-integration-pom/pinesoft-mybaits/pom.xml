@@ -49,12 +49,12 @@
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>${pagehelper.boot.version}</version>
 		</dependency>
-		<!-- oracle数据库连接驱动 -->
-		<dependency>
+		  <!-- oracle数据库连接驱动 -->
+		<!-- <dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>${oracle.driver.version}</version>
-		</dependency>
+		</dependency> -->
 		
 		<dependency>
 			<groupId>com.pinesoft.core</groupId>

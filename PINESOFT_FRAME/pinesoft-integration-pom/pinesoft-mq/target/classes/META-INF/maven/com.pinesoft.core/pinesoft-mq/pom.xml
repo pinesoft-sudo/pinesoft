@@ -40,6 +40,11 @@
 			<groupId>com.pinesoft.core</groupId>
 			<artifactId>pinesoft-log</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
 	<name>MQ的配置类库</name>
