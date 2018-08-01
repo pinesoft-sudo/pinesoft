@@ -29,3 +29,4 @@ RemoteSystemsTempFiles/
 /dist/
 /nbdist/
 /.nb-gradle/
+/PINESOFT_FRAME/pinesoft-boot-pom/pinesoft-cloud-pom/pinesoft-config-server/.classpath
