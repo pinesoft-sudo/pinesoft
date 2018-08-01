@@ -5,7 +5,7 @@ target/
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 
 ### eclipse ###
 RemoteSystemsTempFiles/
