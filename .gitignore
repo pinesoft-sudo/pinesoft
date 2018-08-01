@@ -13,6 +13,8 @@
 /PINESOFT_FRAME/pinesoft-boot-pom/pinesoft-cloud-pom/pinesoft-hystrix-server/target
 /PINESOFT_FRAME/pinesoft-integration-pom/pinesoft-log/target
 /PINESOFT_FRAME/RemoteSystemsTempFiles
+/PINESOFT_FRAME/.metadata/
+/PINESOFT_FRAME/.recommenders/
 /PINESOFT_FRAME/pinesoft-boot-pom/.project
 /PINESOFT_FRAME/pinesoft-boot-pom/.settings
 /PINESOFT_FRAME/pinesoft-integration-pom/.project
@@ -62,3 +64,26 @@
 /PINESOFT_FRAME/pinesoft-boot-pom/pinesoft-webmagic/.project
 /PINESOFT_FRAME/pinesoft-boot-pom/pinesoft-webmagic/.settings
 /PINESOFT_FRAME/pinesoft-boot-pom/pinesoft-webmagic/.classpath
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
