@@ -463,3 +463,7 @@ org.springframework.beans.factory.BeanCreationNotAllowedException: Error creatin
 2018-05-02 11:33:12.494  WARN 8292 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
 2018-05-02 14:52:27.169  WARN 5824 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
 2018-05-02 14:52:27.187  WARN 5824 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-05-15 16:58:06.380  WARN 6044 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-05-15 16:58:06.390  WARN 6044 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-05-15 17:01:56.800  WARN 7308 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-05-15 17:01:56.810  WARN 7308 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.

@@ -28,6 +28,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+				<exclusions>
+				<!-- 注释掉默认的logging，根据实际的用法可选择不同的日志文件，其他项目相同（通过pinesoft.log来控制使用） -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 

@@ -18,15 +18,92 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<skipTests>true</skipTests>
+		<pinesoft.version>0.0.1</pinesoft.version>
+		<spring-cloud.version>Finchley.M7</spring-cloud.version>
 	</properties>
 
 	<dependencies>
+		<!-- 可以通过简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 Java 代码的工具, 包含在spring-boot 2.0+下，此处可以省略 -->
+		<!-- 用可参考https://www.jianshu.com/p/365ea41b3573 -->
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<!-- 注释掉默认的logging，根据实际的用法可选择不同的日志文件，其他项目相同（通过pinesoft.log来控制使用） -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.pinesoft.core</groupId>
+				<artifactId>pinesoft-common</artifactId>
+				<version>${pinesoft.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.pinesoft.core</groupId>
+				<artifactId>pinesoft-mybaits</artifactId>
+				<version>${pinesoft.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.pinesoft.core</groupId>
+				<artifactId>pinesoft-configuration</artifactId>
+				<version>${pinesoft.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.pinesoft.core</groupId>
+				<artifactId>pinesoft-log</artifactId>
+				<version>${pinesoft.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.pinesoft.core</groupId>
+				<artifactId>pinesoft-mq</artifactId>
+				<version>${pinesoft.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.pinesoft.core</groupId>
+				<artifactId>pinesoft-mvc</artifactId>
+				<version>${pinesoft.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.pinesoft.core</groupId>
+				<artifactId>pinesoft-netty</artifactId>
+				<version>${pinesoft.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/libs-milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<modules>
 		<module>pinesoft-mq</module>
@@ -38,3 +115,8 @@
 		<module>pinesoft-mybaits</module>
 	</modules>
 </project>
+
+
+
+
+

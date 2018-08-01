@@ -12,7 +12,7 @@ public class AppMain {
 
 	public static void main(String args[]) {
 		try {
-			spc = new SocketProcessClient("192.168.10.215", 9999, IDENTITY);
+			spc = new SocketProcessClient("192.168.10.230", 9999, IDENTITY);
 			
 			// 接收socket
 			//accept_test();

@@ -6,4 +6,28 @@
     <version>0.0.1</version>
   </parent>
   <artifactId>pinesoft-config-server</artifactId>
+  
+  <dependencies>
+		<!--eureka server -->
+		<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+
+		<dependency>
+			<groupId>com.pinesoft.core</groupId>
+			<artifactId>pinesoft-log</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+  
 </project>
