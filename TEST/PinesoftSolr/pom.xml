@@ -8,7 +8,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<solr.version>5.3.1</solr.version>
+		<solr.version>8.8.2</solr.version>
 	</properties>
 	<dependencies>
 		<!-- 本地项目依赖 -->
