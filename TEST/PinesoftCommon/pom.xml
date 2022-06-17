@@ -81,7 +81,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.6</version>
+			<version>1.2.83</version>
 		</dependency>
 
 		<!-- 这两个包作为jackson-databind的依赖包，会自动加载，这里可以去除掉 -->
